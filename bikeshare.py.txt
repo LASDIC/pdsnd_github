@@ -3,9 +3,9 @@ import pandas as pd
 import numpy as np
 import calendar as cal
 
-CITY_DATA = { 'chicago': 'chicago.csv',
-              'new york city': 'new_york_city.csv',
-              'washington': 'washington.csv' }
+CITY_DATA = { 'Chicago': 'chicago.csv',
+              'New York City': 'new_york_city.csv',
+              'Washington': 'washington.csv' }
 
 def get_filters():
     """
@@ -17,22 +17,22 @@ def get_filters():
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
     print('Hello! Let\'s explore some US bikeshare data!')
-    
+
     # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
-    
+
     city = input("Which city do you want to explore? Chicago, New York City, or Washinton:").lower()
-    
-    if city in ['chicago', 'new york city', 'washington']:
+
+    if city in ['Chicago', 'New York City', 'Washington']:
         overview = pd.read_csv(CITY_DATA[city])
         print('Here are the first 5 rows from',city, ':\n', overview.head(5))
-    while city not in ['chicago', 'new york city', 'washington']:
+    while city not in ['Chicago', 'New York City', 'Washington']:
         print('Invalid Selection')
         city = input("Please Select one of the city between Chicago, New York City or Washington again: ").lower()
         overview = pd.read_csv(CITY_DATA[city])
         print('Here are the first 5 rows from',city, ':\n', overview.head(5))
 
     # TO DO: get user input for month (all, january, february, ... , june)
-    
+
     month = input("Please Select the month between January to June or all: ").lower()
     while month not in ['january', 'february', 'march', 'april', 'may', 'june', 'all']:
         print('Invalid Selection')
@@ -54,15 +54,15 @@ def get_filters():
 def load_data(city, month, day):
         # load data file into a dataframe
     df = pd.read_csv(CITY_DATA[city])
-    
+
         # convert the Start Time column to datetime
     df['Start Time'] = pd.to_datetime(df['Start Time'])
-    
+
         # extract month day and hour of week from Start Time to create new columns
     df['month'] = df['Start Time'].dt.month
     df['day_of_week'] = df['Start Time'].dt.weekday_name
     df['hour'] = df['Start Time'].dt.hour
-    
+
  # filter by month if applicable
     if month != 'all':
         # use the index of the months list to get the corresponding int
@@ -85,7 +85,7 @@ def load_data(city, month, day):
     Returns:
         df - Pandas DataFrame containing city data filtered by month and day
     """
-    
+
     return df
 
 
@@ -126,7 +126,7 @@ def station_stats(df):
     print('Most commonly used end station :', popular_end_station)
 
     # TO DO: display most frequent combination of start station and end station trip
-    df['start end station'] = df['Start Station'] + ' and ' + df['End Station'] 
+    df['start end station'] = df['Start Station'] + ' and ' + df['End Station']
     popular_start_end_station = df['start end station'].mode()[0]
     print('Most frequent combination of start station and end station trip :', popular_start_end_station)
 
@@ -160,7 +160,7 @@ def user_stats(df):
 
     # TO DO: Display counts of user types
     counts_user_types = df['User Type'].value_counts()
-    
+
     print('Counts of user types:\n', counts_user_types, '\n')
 
     # TO DO: Display counts of gender
@@ -183,30 +183,30 @@ def user_stats(df):
 
         print("\n This took %s seconds." % (time.time() - start_time))
         print('-'*40)
-    
-    # TO DO: Ask if the user would like to see more rows of data from the filtered dataset. 
+
+    # TO DO: Ask if the user would like to see more rows of data from the filtered dataset.
     # Display 5 rows, then ask if they would like to see 5 more rows
     # Contine asking until the user says No
-    
+
     show_rows = 5
     rows_start = 0
     rows_end = show_rows -1
-    
+
     print('\n  Would you like to see more data from the current dataset?')
     while True:
         raw_data = input('  (y or n)   ')
         if raw_data.lower() == 'y':
             print('\n  Displaying rows {} to {}:'.format(rows_start + 1, rows_end + 1))
-            
+
             print('\n , df.iloc[rows_start : rows_end + 1 ])
                   rows_start += show_rows
                   rows_end += show_rows
-                  
+
             print('\n  Would you like to see the next {} rows?'.format(show_rows))
             continue
         else:
             break
-                 
+
 def main():
     while True:
         city, month, day = get_filters()
@@ -219,6 +219,6 @@ def main():
         restart = input('\n  Would you like to restart? Enter yes or no.\n ')
         if restart.lower() != 'yes':
             break
-            
+
 if __name__ == "__main__":
 	    main()
