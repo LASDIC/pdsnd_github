@@ -9,8 +9,9 @@ This project, I utilized Python to write code to import in effor to explore and 
 three US cities - Chicago, New York, and Washington.
 
 ### Files used
-Include the files used
+bikeshare.py.txt
+css/app.css
+index.html
+js/app.js
 
-### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
 
