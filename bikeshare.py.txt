@@ -179,7 +179,7 @@ def user_stats(df):
         print('Most recent year of birth: ', most_recent_yob)
         print('Most common year of birth: ', most_common_yob)
     else:
-        print('There is no information in Birth Year')
+        print('There is no information for year of birth')
 
         print("\n This took %s seconds." % (time.time() - start_time))
         print('-'*40)
