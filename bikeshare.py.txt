@@ -21,8 +21,16 @@ def get_filters():
     # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
 
     city = input("Which city do you want to explore? Chicago, New York City, or Washinton:").lower()
+<<<<<<< HEAD
 
     if city in ['Chicago', 'New York City', 'Washington']:
+||||||| 7332806
+    
+    if city in ['chicago', 'new york city', 'washington']:
+=======
+
+    if city in ['chicago', 'new york city', 'washington']:
+>>>>>>> refactoring
         overview = pd.read_csv(CITY_DATA[city])
         print('Here are the first 5 rows from',city, ':\n', overview.head(5))
     while city not in ['Chicago', 'New York City', 'Washington']:
@@ -179,7 +187,7 @@ def user_stats(df):
         print('Most recent year of birth: ', most_recent_yob)
         print('Most common year of birth: ', most_common_yob)
     else:
-        print('There is no information in Birth Year')
+        print('There is no information for year of birth')
 
         print("\n This took %s seconds." % (time.time() - start_time))
         print('-'*40)
@@ -191,8 +199,16 @@ def user_stats(df):
     show_rows = 5
     rows_start = 0
     rows_end = show_rows -1
+<<<<<<< HEAD
 
     print('\n  Would you like to see more data from the current dataset?')
+||||||| 7332806
+    
+    print('\n  Would you like to see more data from the current dataset?')
+=======
+
+    print('\n  Would you like to view more data from the current dataset?')
+>>>>>>> refactoring
     while True:
         raw_data = input('  (y or n)   ')
         if raw_data.lower() == 'y':
