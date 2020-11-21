@@ -5,7 +5,8 @@
 Data Analysis with Pandas on Bikeshare Data
 
 ### Description
-Describe what your project is about and what it does
+This project, I utilized Python to write code to import in effor to explore and analyze data related to the bike sharing system between 
+three US cities - Chicago, New York, and Washington.
 
 ### Files used
 Include the files used
